@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {SketchField, Tools} from 'react-sketch';
 import Icon from '@mdi/react'
-import {mdiUndo, mdiRedo, mdiNewBox, mdiAccountCircle, mdiPencil, mdiColorHelper, mdiRectangleOutline, mdiCircleOutline, mdiPan} from '@mdi/js'
+import {mdiUndo, mdiRedo, mdiNewBox, mdiAccountCircle, mdiPencil, mdiColorHelper, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiCheckboxBlank} from '@mdi/js'
 import { SliderPicker } from 'react-color';
 import { isBrowser } from "react-device-detect"
 import windowSize from 'react-window-size';
@@ -12,6 +12,7 @@ function Sketch(props) {
   const [ref, setRef] = useState({undo: null})
   const [tool, setTool] = useState(Tools.Pencil)
   const [color, setColor] = useState('#fff')
+  const [colorPicker, setColorPicker] = useState(false)
   const defaults = {
     objects: values,
     background: ''
@@ -30,19 +31,24 @@ function Sketch(props) {
                            onChange={console.log}/>
 
       <div className="Nav">
-        <SliderPicker
+        {colorPicker?
+          <SliderPicker
+          width='5px'
           color={color}
           onChangeComplete={(color)=>setColor(color.hex)}/>
+          :
+          null
+        }
         <Icon path={mdiNewBox}
           className="bottomlefticon"
-          size={4}
+          size={3}
           color="#92a3a8"
           onClick={ref.clear}
         />
         <div className="tools">
         <Icon path={mdiColorHelper}
           className="bottomlefticon"
-          size={4}
+          size={3}
           color="#92a3a8"
           rotate={270}
         />
@@ -88,16 +94,22 @@ function Sketch(props) {
           color="#92a3a8"
           onClick={ref.redo}
         />
+        <Icon path={mdiCheckboxBlank}
+          className="bottomlefticon"
+          size={1.5}
+          color={color}
+          onClick={()=>setColorPicker(!colorPicker)}
+        />
         <Icon path={mdiColorHelper}
           className="bottomlefticon"
-          size={4}
+          size={3}
           color="#92a3a8"
           rotate={90}
         />
         </div>
         <Icon path={mdiAccountCircle}
           className="bottomrighticon"
-          size={4}
+          size={3}
           color="#92a3a8"
         />
       </div>
