@@ -32,25 +32,22 @@ function Sketch(props) {
 
       <div className="Nav">
         {colorPicker?
+          <div>
           <SliderPicker
           width='5px'
           color={color}
           onChangeComplete={(color)=>setColor(color.hex)}/>
+          <br />
+          </div>
           :
           null
         }
+        <div className="tools">
         <Icon path={mdiNewBox}
           className="bottomlefticon"
-          size={3}
+          size={1.5}
           color="#92a3a8"
           onClick={ref.clear}
-        />
-        <div className="tools">
-        <Icon path={mdiColorHelper}
-          className="bottomlefticon"
-          size={3}
-          color="#92a3a8"
-          rotate={270}
         />
         <Icon path={mdiPencil}
           className="bottomlefticon"
@@ -102,14 +99,14 @@ function Sketch(props) {
         />
         <Icon path={mdiColorHelper}
           className="bottomlefticon"
-          size={3}
+          size={2}
           color="#92a3a8"
           rotate={90}
         />
         </div>
         <Icon path={mdiAccountCircle}
           className="bottomrighticon"
-          size={3}
+          size={2}
           color="#92a3a8"
         />
       </div>
