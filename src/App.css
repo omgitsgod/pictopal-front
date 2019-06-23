@@ -30,6 +30,9 @@
 .bottomicon {
   margin: 0 40px;
 }
+.bottomicon:hover {
+  margin: 0 40px;
+}
 
 .App-link {
   color: #61dafb;
