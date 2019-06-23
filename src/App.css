@@ -30,8 +30,11 @@
 .bottomicon {
   margin: 0 40px;
 }
-.bottomicon:hover {
-  margin: 0 40px;
+.bottomlefticon {
+  float: left;
+}
+.bottomrighticon {
+  float: right;
 }
 
 .App-link {
