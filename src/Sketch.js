@@ -13,6 +13,7 @@ function Sketch(props) {
   const [tool, setTool] = useState(Tools.Pencil)
   const [color, setColor] = useState('#fff')
   const [colorPicker, setColorPicker] = useState(false)
+  const [expand, setExpand] = useState(false)
   const defaults = {
     objects: values,
     background: ''
@@ -68,10 +69,49 @@ function Sketch(props) {
           color={color}
           onClick={()=>setColorPicker(!colorPicker)}
         />
+
+        {expand ?
+          <div>
+          <Icon path={mdiPencil}
+            className="bottomlefticon"
+            size={1.5}
+            color="#92a3a8"
+            onClick={()=>setTool(Tools.Pencil)}
+          />
+          <Icon path={mdiRectangleOutline}
+            className="bottomlefticon"
+            size={1.5}
+            color="#92a3a8"
+            onClick={()=>setTool(Tools.Rectangle)}
+          />
+          <Icon path={mdiCircleOutline}
+            className="bottomlefticon"
+            size={1.5}
+            color="#92a3a8"
+            onClick={()=>setTool(Tools.Circle)}
+          />
+          <Icon path={mdiColorHelper}
+            className="bottomlefticon"
+            size={1.5}
+            color="#92a3a8"
+            onClick={()=>setTool(Tools.Line)}
+          />
+          <Icon path={mdiPan}
+            className="bottomlefticon"
+            size={1.5}
+            color="#92a3a8"
+            onClick={()=>setTool(Tools.Pan)}
+          />
+          </div>
+          :
+          null
+        }
         <Icon path={mdiChevronDoubleRight}
           className="bottomlefticon"
           size={2}
           color="#92a3a8"
+          rotate={expand? 180 : 0}
+          onClick={()=>setExpand(!expand)}
         />
         </div>
         <Icon path={mdiAccountCircle}
