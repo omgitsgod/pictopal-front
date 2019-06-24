@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {SketchField, Tools} from 'react-sketch';
 import Icon from '@mdi/react'
-import {mdiUndo, mdiRedo, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiColorHelper, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
+import {mdiUndo, mdiRedo, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
 import { SliderPicker } from 'react-color';
 import { isBrowser, isMobile } from "react-device-detect"
 import windowSize from 'react-window-size';
@@ -90,7 +90,7 @@ function Sketch(props) {
             color="#92a3a8"
             onClick={()=>setTool(Tools.Circle)}
           />
-          <Icon path={mdiColorHelper}
+          <Icon path={mdiRayStartArrow}
             className="bottomlefticon"
             size={1.5}
             color="#92a3a8"
