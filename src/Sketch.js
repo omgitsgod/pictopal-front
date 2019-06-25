@@ -120,7 +120,7 @@ function Sketch(props) {
         {isMobile ?
           <Icon path={mdiAccountCircle}
             className="bottomrighticon"
-            size={2}
+            size={1.5}
             color="#92a3a8"
           />
           :
