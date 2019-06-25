@@ -14,6 +14,8 @@ function Sketch(props) {
   const [color, setColor] = useState('#fff')
   const [colorPicker, setColorPicker] = useState(false)
   const [expand, setExpand] = useState(false)
+  const [width, setWidth] = useState(3)
+  const [widthMenu, setWidthMenu] = useState(false)
   const defaults = {
     objects: values,
     background: ''
@@ -26,7 +28,7 @@ function Sketch(props) {
                            height={props.windowHeight}
                            tool={tool}
                            lineColor={color}
-                           lineWidth={3}
+                           lineWidth={width}
                            defaultValue = {defaults}
                            ref={setRef}
                            onChange={console.log}/>
@@ -43,6 +45,10 @@ function Sketch(props) {
           :
           null
         }
+        {widthMenu ?
+          <input className="thick" style={{backgroundColor: color}} name="width" type="range" min="0" max="50" value={width} onChange={(e)=>setWidth(e.target.value)} />
+          :
+          null}
         <div className="tools">
         <Icon path={mdiNewBox}
           className="bottomlefticon"
@@ -100,7 +106,7 @@ function Sketch(props) {
             className="bottomlefticon"
             size={1.5}
             color="#92a3a8"
-            
+            onClick={()=>setWidthMenu(!widthMenu)}
           />
           <Icon path={mdiPan}
             className="bottomlefticon"
