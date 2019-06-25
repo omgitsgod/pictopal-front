@@ -129,6 +129,7 @@ function Sketch(props) {
             className="bottomrighticon"
             size={2}
             color="#92a3a8"
+            onClick={()=>alert("NOT READY YET!")}
           />
       </div>
       </header>
