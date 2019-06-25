@@ -117,15 +117,6 @@ function Sketch(props) {
           :
           null
         }
-        {isMobile ?
-          <Icon path={mdiAccountCircle}
-            className="bottomrighticon"
-            size={1.5}
-            color="#92a3a8"
-          />
-          :
-          null
-        }
         <Icon path={mdiChevronDoubleRight}
           className="bottomlefticon"
           size={2}
@@ -134,15 +125,11 @@ function Sketch(props) {
           onClick={()=>setExpand(!expand)}
         />
         </div>
-        {!isMobile ?
           <Icon path={mdiAccountCircle}
             className="bottomrighticon"
             size={2}
             color="#92a3a8"
           />
-          :
-          null
-        }
       </div>
       </header>
     </div>
