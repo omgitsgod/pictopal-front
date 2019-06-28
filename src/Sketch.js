@@ -51,7 +51,7 @@ function Sketch(props) {
             <Icon path={mdiShareOutline}
               size={2}
               color="#92a3a8"
-              onClick={() => localStorage.removeItem("canvas")}
+              onClick={() => alert("Share!")}
             />
             <Icon path={mdiContentSave}
               size={2}
@@ -61,7 +61,7 @@ function Sketch(props) {
             <Icon path={mdiSettingsOutline}
               size={2}
               color="#92a3a8"
-              onClick={()=>localStorage.setItem("canvas", JSON.stringify(ref.toJSON()))}
+              onClick={()=>alert("Profile!")}
             />
           </div>
           :
