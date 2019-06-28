@@ -3,8 +3,8 @@ import {SketchField, Tools} from 'react-sketch';
 import Icon from '@mdi/react'
 import {mdiContentSave, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
 import { SliderPicker } from 'react-color';
-import { isBrowser, isMobile } from "react-device-detect"
-import windowSize from 'react-window-size';
+import ReactTooltip from 'react-tooltip'
+import { isMobile } from "react-device-detect"
 import './App.css';
 
 function Sketch(props) {
@@ -47,22 +47,38 @@ function Sketch(props) {
               size={2}
               color="#92a3a8"
               onClick={() => localStorage.removeItem("canvas")}
+              data-tip data-for='trash'
             />
+            <ReactTooltip id='trash' type='info'>
+              <span>Trash</span>
+            </ReactTooltip>
             <Icon path={mdiShareOutline}
               size={2}
               color="#92a3a8"
               onClick={() => alert("Share!")}
+              data-tip data-for='share'
             />
+            <ReactTooltip id='share' type='info'>
+              <span>Share</span>
+            </ReactTooltip>
             <Icon path={mdiContentSave}
               size={2}
               color="#92a3a8"
               onClick={()=>localStorage.setItem("canvas", JSON.stringify(ref.toJSON()))}
+              data-tip data-for='save'
             />
+            <ReactTooltip id='save' type='info'>
+              <span>Save</span>
+            </ReactTooltip>
             <Icon path={mdiSettingsOutline}
               size={2}
               color="#92a3a8"
               onClick={()=>alert("Profile!")}
+              data-tip data-for='profile'
             />
+            <ReactTooltip id='profile' type='info'>
+              <span>Profile</span>
+            </ReactTooltip>
           </div>
           :
           null
@@ -88,26 +104,42 @@ function Sketch(props) {
           size={1.5}
           color="#92a3a8"
           onClick={ref.clear}
+          data-tip data-for='new'
         />
+        <ReactTooltip id='new' type='info'>
+          <span>New</span>
+        </ReactTooltip>
 
         <Icon path={mdiUndo}
           className="bottomlefticon"
           size={1.5}
           color="#92a3a8"
           onClick={ref.undo}
+          data-tip data-for='undo'
         />
+        <ReactTooltip id='undo' type='info'>
+          <span>Undo</span>
+        </ReactTooltip>
         <Icon path={mdiRedo}
           className="bottomlefticon"
           size={1.5}
           color="#92a3a8"
           onClick={ref.redo}
+          data-tip data-for='redo'
         />
+        <ReactTooltip id='redo' type='info'>
+          <span>Redo</span>
+        </ReactTooltip>
         <Icon path={mdiPalette}
           className="bottomlefticon"
           size={1.5}
           color={color}
           onClick={()=>setColorPicker(!colorPicker)}
+          data-tip data-for='color'
         />
+        <ReactTooltip id='color' type='info'>
+          <span>Color</span>
+        </ReactTooltip>
         {expand ?
           <div>
           <Icon path={mdiPencil}
@@ -115,37 +147,61 @@ function Sketch(props) {
             size={1.5}
             color="#92a3a8"
             onClick={()=>setTool(Tools.Pencil)}
+            data-tip data-for='draw'
           />
+          <ReactTooltip id='draw' type='info'>
+            <span>Draw</span>
+          </ReactTooltip>
           <Icon path={mdiRectangleOutline}
             className="bottomlefticon"
             size={1.5}
             color="#92a3a8"
             onClick={()=>setTool(Tools.Rectangle)}
+            data-tip data-for='rectangle'
           />
+          <ReactTooltip id='rectangle' type='info'>
+            <span>Rectangle</span>
+          </ReactTooltip>
           <Icon path={mdiCircleOutline}
             className="bottomlefticon"
             size={1.5}
             color="#92a3a8"
             onClick={()=>setTool(Tools.Circle)}
+            data-tip data-for='circle'
           />
+          <ReactTooltip id='circle' type='info'>
+            <span>Circle</span>
+          </ReactTooltip>
           <Icon path={mdiRayStartArrow}
             className="bottomlefticon"
             size={1.5}
             color="#92a3a8"
             onClick={()=>setTool(Tools.Line)}
+            data-tip data-for='line'
           />
+          <ReactTooltip id='line' type='info'>
+            <span>Line</span>
+          </ReactTooltip>
           <Icon path={mdiArrowSplitHorizontal}
             className="bottomlefticon"
             size={1.5}
             color="#92a3a8"
             onClick={()=>setWidthMenu(!widthMenu)}
+            data-tip data-for='width'
           />
+          <ReactTooltip id='width' type='info'>
+            <span>Width</span>
+          </ReactTooltip>
           <Icon path={mdiPan}
             className="bottomlefticon"
             size={1.5}
             color="#92a3a8"
             onClick={()=>setTool(Tools.Pan)}
+            data-tip data-for='move'
           />
+          <ReactTooltip id='move' type='info'>
+            <span>Move</span>
+          </ReactTooltip>
           </div>
           :
           null
@@ -156,14 +212,22 @@ function Sketch(props) {
           color="#92a3a8"
           rotate={expand? 180 : 0}
           onClick={()=>setExpand(!expand)}
+          data-tip data-for='open'
         />
+        <ReactTooltip id='open' type='info'>
+          <span>Open</span>
+        </ReactTooltip>
         </div>
           <Icon path={mdiAccountCircle}
             className="bottomrighticon"
             size={2}
             color="#92a3a8"
             onClick={()=>setAccountMenu(!accountMenu)}
+            data-tip data-for='account'
           />
+          <ReactTooltip id='account' type='info'>
+            <span>Account</span>
+          </ReactTooltip>
       </div>
     </div>
   );

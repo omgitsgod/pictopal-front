@@ -11,7 +11,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "react-sketch": "^0.5.1",
-    "react-window-size": "^1.2.2"
+    "react-tooltip": "^3.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
