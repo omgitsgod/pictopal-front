@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {SketchField, Tools} from 'react-sketch';
 import Icon from '@mdi/react'
-import {mdiContentSave, mdiTrashCanOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
+import {mdiContentSave, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
 import { SliderPicker } from 'react-color';
 import { isBrowser, isMobile } from "react-device-detect"
 import windowSize from 'react-window-size';
@@ -44,13 +44,21 @@ function Sketch(props) {
         {accountMenu ?
           <div className="accountmenu">
             <Icon path={mdiTrashCanOutline}
-              className="save"
+              size={2}
+              color="#92a3a8"
+              onClick={() => localStorage.removeItem("canvas")}
+            />
+            <Icon path={mdiShareOutline}
               size={2}
               color="#92a3a8"
               onClick={() => localStorage.removeItem("canvas")}
             />
             <Icon path={mdiContentSave}
-              className="save"
+              size={2}
+              color="#92a3a8"
+              onClick={()=>localStorage.setItem("canvas", JSON.stringify(ref.toJSON()))}
+            />
+            <Icon path={mdiSettingsOutline}
               size={2}
               color="#92a3a8"
               onClick={()=>localStorage.setItem("canvas", JSON.stringify(ref.toJSON()))}
