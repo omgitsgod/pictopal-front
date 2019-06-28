@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {SketchField, Tools} from 'react-sketch';
 import Icon from '@mdi/react'
-import {mdiContentSave, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
+import {mdiContentSave, mdiRecord, mdiCctv, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
 import { SliderPicker } from 'react-color';
 import ReactTooltip from 'react-tooltip'
 import { isMobile } from "react-device-detect"
@@ -17,6 +17,7 @@ function Sketch(props) {
   const [width, setWidth] = useState(3)
   const [widthMenu, setWidthMenu] = useState(false)
   const [accountMenu, setAccountMenu] = useState(false)
+  const [record, setRecord] = useState(false)
 
   const defaults = {
     objects: values,
@@ -51,6 +52,15 @@ function Sketch(props) {
             />
             <ReactTooltip id='trash' type='info'>
               <span>Trash</span>
+            </ReactTooltip>
+            <Icon path={mdiCctv}
+              size={2}
+              color="#92a3a8"
+              onClick={() => setRecord(!record)}
+              data-tip data-for='live'
+            />
+            <ReactTooltip id='live' type='info'>
+              <span>Live</span>
             </ReactTooltip>
             <Icon path={mdiShareOutline}
               size={2}
@@ -218,6 +228,22 @@ function Sketch(props) {
           <span>Open</span>
         </ReactTooltip>
         </div>
+          {record ?
+            <div>
+            <Icon path={mdiRecord}
+              className="bottomrighticon"
+              size={2}
+              color="#FF0000"
+              onClick={()=>setAccountMenu(!accountMenu)}
+              data-tip data-for='record'
+            />
+            <ReactTooltip id='record' type='info'>
+              <span>Recording</span>
+            </ReactTooltip>
+            </div>
+            :
+            null
+          }
           <Icon path={mdiAccountCircle}
             className="bottomrighticon"
             size={2}
