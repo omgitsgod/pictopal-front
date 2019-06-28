@@ -40,6 +40,10 @@
 .thick {
   width: 100%;
 }
+.accountmenu {
+  right: 0;
+  text-align: right;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

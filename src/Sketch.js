@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {SketchField, Tools} from 'react-sketch';
 import Icon from '@mdi/react'
-import {mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
+import {mdiContentSave, mdiTrashCanOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
 import { SliderPicker } from 'react-color';
 import { isBrowser, isMobile } from "react-device-detect"
 import windowSize from 'react-window-size';
@@ -16,6 +16,7 @@ function Sketch(props) {
   const [expand, setExpand] = useState(false)
   const [width, setWidth] = useState(3)
   const [widthMenu, setWidthMenu] = useState(false)
+  const [accountMenu, setAccountMenu] = useState(false)
 
   const defaults = {
     objects: values,
@@ -26,7 +27,7 @@ function Sketch(props) {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="sketch">
+        <div className="sketchy">
           <SketchField width={isMobile ? '360px' : '1024px'}
                              height={isMobile ? '500px' : '768px'}
                              tool={tool}
@@ -40,6 +41,24 @@ function Sketch(props) {
 
       </header>
       <div className="Nav">
+        {accountMenu ?
+          <div className="accountmenu">
+            <Icon path={mdiTrashCanOutline}
+              className="save"
+              size={2}
+              color="#92a3a8"
+              onClick={() => localStorage.removeItem("canvas")}
+            />
+            <Icon path={mdiContentSave}
+              className="save"
+              size={2}
+              color="#92a3a8"
+              onClick={()=>localStorage.setItem("canvas", JSON.stringify(ref.toJSON()))}
+            />
+          </div>
+          :
+          null
+        }
         {colorPicker?
           <div>
           <SliderPicker
@@ -135,7 +154,7 @@ function Sketch(props) {
             className="bottomrighticon"
             size={2}
             color="#92a3a8"
-            onClick={()=>localStorage.setItem("canvas", JSON.stringify(ref.toJSON()))}
+            onClick={()=>setAccountMenu(!accountMenu)}
           />
       </div>
     </div>
