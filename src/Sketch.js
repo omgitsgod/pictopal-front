@@ -23,7 +23,10 @@ function Sketch(props) {
     objects: values,
     background: ''
   }
-
+  const handleLive = () => {
+    console.log("Live");
+    setRecord(!record)
+  }
   console.log(ref);
   return (
     <div className="App">
@@ -56,7 +59,7 @@ function Sketch(props) {
             <Icon path={mdiCctv}
               size={2}
               color="#92a3a8"
-              onClick={() => setRecord(!record)}
+              onClick={handleLive}
               data-tip data-for='live'
             />
             <ReactTooltip id='live' type='info'>
