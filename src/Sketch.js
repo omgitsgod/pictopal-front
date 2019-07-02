@@ -18,7 +18,6 @@ function Sketch(props) {
   const [widthMenu, setWidthMenu] = useState(false)
   const [accountMenu, setAccountMenu] = useState(false)
   const [record, setRecord] = useState(false)
-  const [connection, setConnection] = useState(null)
 
   const defaults = {
     objects: values,
@@ -29,10 +28,11 @@ function Sketch(props) {
     setRecord(!record)
     if (!record) {
       const url = 'wss://pictopal-backend.herokuapp.com'
-      setConnection(new WebSocket(url))
+      const connection = new WebSocket(url)
 
       connection.onopen = () => {
         connection.send('hey')
+        connection.send(JSON.stringify(ref.toJSON()))
       }
 
       connection.onerror = (error) => {
