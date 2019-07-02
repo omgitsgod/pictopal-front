@@ -42,6 +42,7 @@ function Sketch(props) {
       connection.onmessage = (e) => {
         console.log(e.data)
         // ref.fromJSON(e.data)
+        // setValues(JSON.parse(e.data))
       }
     }
   }
