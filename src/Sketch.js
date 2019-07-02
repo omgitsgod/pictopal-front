@@ -26,6 +26,22 @@ function Sketch(props) {
   const handleLive = () => {
     console.log("Live");
     setRecord(!record)
+    if (!record) {
+      const url = 'wss://pictopal-backend.herokuapp.com'
+      const connection = new WebSocket(url)
+
+      connection.onopen = () => {
+        connection.send('hey')
+      }
+
+      connection.onerror = (error) => {
+        console.log(`WebSocket error: ${error}`)
+      }
+
+      connection.onmessage = (e) => {
+        console.log(e.data)
+      }
+    }
   }
   console.log(ref);
   return (
