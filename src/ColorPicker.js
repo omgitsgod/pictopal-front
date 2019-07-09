@@ -8,13 +8,16 @@ import ReactTooltip from 'react-tooltip'
 import { isMobile } from "react-device-detect"
 import './App.css';
 
-function AccountMenu(props) {
+function SettingsMenu(props) {
   return (
-    <div className="accountmenu">
-    <GoogleButton
-      onClick={() => { console.log('Google button clicked') }}
-    />
+    <div>
+    <SliderPicker
+    width='5px'
+    color={props.color}
+    onChangeComplete={(color)=>props.setColor(color.hex)}
+  />
+    <br />
     </div>
   )
 }
-export default AccountMenu;
+export default SettingsMenu;

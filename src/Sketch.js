@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import AccountMenu from './AccountMenu'
+import SettingsMenu from './SettingsMenu'
+import ColorPicker from './ColorPicker'
 import {SketchField, Tools} from 'react-sketch';
 import Icon from '@mdi/react'
 import GoogleButton from 'react-google-button'
@@ -67,73 +70,17 @@ function Sketch(props) {
       </header>
       <div className="Nav">
         {accountMenu ?
-          <div className="accountmenu">
-          <GoogleButton
-            onClick={() => { console.log('Google button clicked') }}
-          />
-          </div>
+          <AccountMenu />
         :
         null
         }
         {settingsMenu ?
-          <div className="settingsmenu">
-            <Icon path={mdiTrashCanOutline}
-              size={2}
-              color="#92a3a8"
-              onClick={() => localStorage.removeItem("canvas")}
-              data-tip data-for='trash'
-            />
-            <ReactTooltip id='trash' type='info'>
-              <span>Trash</span>
-            </ReactTooltip>
-            <Icon path={mdiCctv}
-              size={2}
-              color="#92a3a8"
-              onClick={handleLive}
-              data-tip data-for='live'
-            />
-            <ReactTooltip id='live' type='info'>
-              <span>Live</span>
-            </ReactTooltip>
-            <Icon path={mdiShareOutline}
-              size={2}
-              color="#92a3a8"
-              onClick={() => alert("Share!")}
-              data-tip data-for='share'
-            />
-            <ReactTooltip id='share' type='info'>
-              <span>Share</span>
-            </ReactTooltip>
-            <Icon path={mdiContentSave}
-              size={2}
-              color="#92a3a8"
-              onClick={()=>localStorage.setItem("canvas", JSON.stringify(ref.toJSON()))}
-              data-tip data-for='save'
-            />
-            <ReactTooltip id='save' type='info'>
-              <span>Save</span>
-            </ReactTooltip>
-            <Icon path={mdiSettingsOutline}
-              size={2}
-              color="#92a3a8"
-              onClick={()=>alert("Profile!")}
-              data-tip data-for='profile'
-            />
-            <ReactTooltip id='profile' type='info'>
-              <span>Profile</span>
-            </ReactTooltip>
-          </div>
+          <SettingsMenu ref={ref} handleLive={handleLive}/>
           :
           null
         }
         {colorPicker?
-          <div>
-          <SliderPicker
-          width='5px'
-          color={color}
-          onChangeComplete={(color)=>setColor(color.hex)}/>
-          <br />
-          </div>
+        <ColorPicker color={color} setColor={setColor}/>
           :
           null
         }
@@ -146,7 +93,7 @@ function Sketch(props) {
           className="bottomlefticon"
           size={1.5}
           color="#92a3a8"
-          onClick={ref.clear}
+          onClick={ref.clear || null}
           data-tip data-for='new'
         />
         <ReactTooltip id='new' type='info'>
@@ -157,7 +104,7 @@ function Sketch(props) {
           className="bottomlefticon"
           size={1.5}
           color="#92a3a8"
-          onClick={ref.undo}
+          onClick={ref.undo || null}
           data-tip data-for='undo'
         />
         <ReactTooltip id='undo' type='info'>
@@ -167,7 +114,7 @@ function Sketch(props) {
           className="bottomlefticon"
           size={1.5}
           color="#92a3a8"
-          onClick={ref.redo}
+          onClick={ref.redo || null}
           data-tip data-for='redo'
         />
         <ReactTooltip id='redo' type='info'>
