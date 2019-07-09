@@ -47,15 +47,6 @@ function SettingsMenu(props) {
       <ReactTooltip id='save' type='info'>
         <span>Save</span>
       </ReactTooltip>
-      <Icon path={mdiSettingsOutline}
-        size={2}
-        color="#92a3a8"
-        onClick={()=>alert("Profile!")}
-        data-tip data-for='profile'
-      />
-      <ReactTooltip id='profile' type='info'>
-        <span>Profile</span>
-      </ReactTooltip>
     </div>
   )
 }
