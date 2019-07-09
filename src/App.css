@@ -42,6 +42,10 @@
 }
 .accountmenu {
   right: 0;
+  align: right;
+}
+.settingsmenu {
+  right: 0;
   text-align: right;
 }
 @keyframes App-logo-spin {

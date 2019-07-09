@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {SketchField, Tools} from 'react-sketch';
 import Icon from '@mdi/react'
+import GoogleButton from 'react-google-button'
 import {mdiContentSave, mdiRecord, mdiCctv, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
 import { SliderPicker } from 'react-color';
 import ReactTooltip from 'react-tooltip'
@@ -17,6 +18,7 @@ function Sketch(props) {
   const [width, setWidth] = useState(3)
   const [widthMenu, setWidthMenu] = useState(false)
   const [accountMenu, setAccountMenu] = useState(false)
+  const [settingsMenu, setSettingsMenu] = useState(false)
   const [record, setRecord] = useState(false)
 
   const defaults = {
@@ -66,6 +68,15 @@ function Sketch(props) {
       <div className="Nav">
         {accountMenu ?
           <div className="accountmenu">
+          <GoogleButton
+            onClick={() => { console.log('Google button clicked') }}
+          />
+          </div>
+        :
+        null
+        }
+        {settingsMenu ?
+          <div className="settingsmenu">
             <Icon path={mdiTrashCanOutline}
               size={2}
               color="#92a3a8"
@@ -272,6 +283,13 @@ function Sketch(props) {
             color="#92a3a8"
             onClick={()=>setAccountMenu(!accountMenu)}
             data-tip data-for='account'
+          />
+          <Icon path={mdiSettingsOutline}
+            className="bottomrighticon"
+            size={2}
+            color="#92a3a8"
+            onClick={()=>setSettingsMenu(!settingsMenu)}
+            data-tip data-for='settings'
           />
           <ReactTooltip id='account' type='info'>
             <span>Account</span>
