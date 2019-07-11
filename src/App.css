@@ -41,7 +41,8 @@
   width: 100%;
 }
 .accountmenu {
-  right: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 .settingsmenu {
   right: 0;
