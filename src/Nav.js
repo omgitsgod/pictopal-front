@@ -72,7 +72,7 @@ function Nav(props) {
           null
         }
         {props.widthMenu ?
-          <input className="thick" style={{backgroundColor: color}} name="width" type="range" min="0" max="50" value={props.width} onChange={(e)=>setWidth(e.target.value)} />
+          <input className="thick" style={{backgroundColor: color}} name="width" type="range" min="0" max="50" value={props.width} onChange={(e)=>props.setWidth(e.target.value)} />
           :
           null}
         <SketchTools reff={props.reff} setColorPicker={props.setColorPicker} colorPicker={props.colorPicker} setTool={props.setTool} setWidthMenu={props.setWidthMenu} widthMenu={props.widthMenu} expand={props.expand} setExpand={props.setExpand} color={props.color}/>

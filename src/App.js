@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff}/>
-      <Nav setSettingsMenu={setSettingsMenu} setExpand={setExpand} color={color} setColor={setColor} accountMenu={accountMenu} settingsMenu={settingsMenu} colorPicker={colorPicker} setColorPicker={setColorPicker} reff={reff} widthMenu={widthMenu} record={record} setAccountMenu={setAccountMenu} expand={expand} setTool={setTool} setWidthMenu={setWidthMenu}/>
+      <Nav setSettingsMenu={setSettingsMenu} setExpand={setExpand} color={color} setColor={setColor} accountMenu={accountMenu} settingsMenu={settingsMenu} colorPicker={colorPicker} setColorPicker={setColorPicker} reff={reff} widthMenu={widthMenu} record={record} setAccountMenu={setAccountMenu} expand={expand} setTool={setTool} setWidthMenu={setWidthMenu} setWidth={setWidth}/>
     </div>
   );
 }
