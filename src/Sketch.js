@@ -52,25 +52,22 @@ function Sketch(props) {
       }
     }
   }
-  console.log(ref);
+  console.log(props.reff);
   return (
-    <div className="App">
       <header className="App-header">
         <div className="sketchy">
           <SketchField width={isMobile ? '360px' : '1024px'}
                              height={isMobile ? '500px' : '768px'}
-                             tool={tool}
-                             lineColor={color}
-                             lineWidth={width}
+                             tool={props.tool}
+                             lineColor={props.color}
+                             lineWidth={props.width}
                              defaultValue = {defaults}
-                             ref={setRef}
-                             onChange={()=>console.log(ref)}/>
+                             ref={props.setReff}
+                             onChange={()=>console.log(props.reff)}/>
         </div>
 
 
       </header>
-      <Nav setSettingsMenu={setSettingsMenu} setExpand={setExpand} setColor={setColor} accountMenu={accountMenu} settingsMenu={settingsMenu} colorPicker={colorPicker} setColorPicker={setColorPicker} reff={ref} widthMenu={widthMenu} record={record} setAccountMenu={setAccountMenu} expand={expand} setTool={setTool} setWidthMenu={setWidthMenu}/>
-    </div>
   );
 }
 

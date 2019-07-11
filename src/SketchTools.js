@@ -8,14 +8,14 @@ import ReactTooltip from 'react-tooltip'
 import { isMobile } from "react-device-detect"
 import './App.css';
 
-function Toools(props) {
+function SketchTools(props) {
   return (
     <div className="tools">
     <Icon path={mdiNewBox}
       className="bottomlefticon"
       size={1.5}
       color="#92a3a8"
-      onClick={props.ref.clear || null}
+      onClick={props.reff.clear}
       data-tip data-for='new'
     />
     <ReactTooltip id='new' type='info'>
@@ -26,7 +26,7 @@ function Toools(props) {
       className="bottomlefticon"
       size={1.5}
       color="#92a3a8"
-      onClick={props.ref.undo || null}
+      onClick={props.reff.undo}
       data-tip data-for='undo'
     />
     <ReactTooltip id='undo' type='info'>
@@ -36,7 +36,7 @@ function Toools(props) {
       className="bottomlefticon"
       size={1.5}
       color="#92a3a8"
-      onClick={props.ref.redo || null}
+      onClick={props.reff.redo}
       data-tip data-for='redo'
     />
     <ReactTooltip id='redo' type='info'>
@@ -132,4 +132,4 @@ function Toools(props) {
     </div>
   )
 }
-export default Toools;
+export default SketchTools;
