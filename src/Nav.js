@@ -28,7 +28,7 @@ function Nav(props) {
 
       connection.onopen = () => {
         connection.send('hey')
-        connection.send(JSON.stringify(ref.toJSON()))
+        connection.send(JSON.stringify(props.reff.toJSON()))
       }
 
       connection.onerror = (error) => {
