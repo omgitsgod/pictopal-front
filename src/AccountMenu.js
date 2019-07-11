@@ -9,9 +9,11 @@ import './App.css';
 function AccountMenu(props) {
   return (
     <div className="accountmenu">
+    <a href="https://pictopal-backend.herokuapp.com/auth/google">
     <GoogleButton
       onClick={() => { console.log('Google button clicked') }}
     />
+    </a>
     </div>
   )
 }
