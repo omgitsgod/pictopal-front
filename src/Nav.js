@@ -96,14 +96,14 @@ function Nav(props) {
             className="bottomrighticon"
             size={2}
             color="#92a3a8"
-            onClick={()=>props.setAccountMenu(!accountMenu)}
+            onClick={()=>props.setAccountMenu(!props.accountMenu)}
             data-tip data-for='account'
           />
           <Icon path={mdiSettingsOutline}
             className="bottomrighticon"
             size={2}
             color="#92a3a8"
-            onClick={()=>props.setSettingsMenu(!settingsMenu)}
+            onClick={()=>props.setSettingsMenu(!props.settingsMenu)}
             data-tip data-for='settings'
           />
           <ReactTooltip id='account' type='info'>
