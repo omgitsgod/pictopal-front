@@ -24,7 +24,7 @@ function App(props) {
   const login = (x) => {
     console.log(x)
     window.localStorage.setItem("jwt", token)
-    this.props.history.push("/")
+    props.history.push("/")
   }
 
   useEffect(()=>{
