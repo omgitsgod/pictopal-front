@@ -26,6 +26,7 @@ function App(props) {
     props.history.push('/')
     setUser(x)
     setIsAuthenticated(true)
+    console.log('currently logged in as: ', x.name)
   }
 
   useEffect(()=>{
