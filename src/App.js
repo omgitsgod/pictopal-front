@@ -25,7 +25,10 @@ function App(props) {
     if (token.length > 1) {
       fetch(`https://pictopal-backend.herokuapp.com/getUser/${token}`)
       .then(r => r.json())
-      .then(console.log)
+      .then(json => {
+        setUser(json)
+        setIsAuthenticated(true)
+      })
     }
   },[token])
 
