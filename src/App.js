@@ -8,7 +8,7 @@ import ReactTooltip from 'react-tooltip'
 import { isMobile } from "react-device-detect"
 import './App.css';
 
-function App() {
+function App(props) {
   const [reff, setReff] = useState({undo: null})
   const [tool, setTool] = useState(Tools.Pencil)
   const [color, setColor] = useState('#fff')
@@ -17,7 +17,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [token, setToken] = useState('')
-
+  console.log(props.location.search);
   return (
     <div className="App">
       <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff}/>
