@@ -10,12 +10,9 @@ function AccountMenu(props) {
   return (
     <div className="accountmenu">
     {props.isAuthenticated ?
-      <a href="https://pictopal-backend.herokuapp.com/auth/google">
-      <GoogleButton
-        label='Sign Out'
-        onClick={() => { console.log('Google button clicked') }}
-      />
-      </a>
+      <button>
+        Log Out
+      </button>
       :
       <a href="https://pictopal-backend.herokuapp.com/auth/google">
       <GoogleButton
