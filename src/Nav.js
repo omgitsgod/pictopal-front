@@ -47,7 +47,7 @@ function Nav(props) {
     <div className="App">
       <div className="Nav">
         {accountMenu ?
-          <AccountMenu isAuthenticated={props.isAuthenticated}/>
+          <AccountMenu isAuthenticated={props.isAuthenticated} logout={props.logout}/>
         :
         null
         }

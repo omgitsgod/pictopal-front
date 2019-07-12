@@ -10,7 +10,7 @@ function AccountMenu(props) {
   return (
     <div className="accountmenu">
     {props.isAuthenticated ?
-      <button className='logout'>
+      <button className='logout' onClick={props.logout}>
         Log Out
       </button>
       :

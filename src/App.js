@@ -28,6 +28,13 @@ function App(props) {
     setIsAuthenticated(true)
     console.log('currently logged in as: ', x.name)
   }
+  const logout = () => {
+    setIsAuthenticated(false)
+    setUser(null)
+    setToken('')
+    window.localStorage.clear()
+
+  }
 
   useEffect(()=>{
     if (token.length > 1) {
@@ -42,7 +49,7 @@ function App(props) {
   return (
     <div className="App">
       <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff}/>
-      <Nav isAuthenticated={isAuthenticated} user={user} color={color} setColor={setColor}  reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
+      <Nav isAuthenticated={isAuthenticated} user={user} logout={logout} color={color} setColor={setColor}  reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
     </div>
   );
 }
