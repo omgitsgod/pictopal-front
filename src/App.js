@@ -17,17 +17,21 @@ function App(props) {
   const [record, setRecord] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
-  const [token, setToken] = useState(props.location.search? queryString.parse(props.location.search).token :'')
+  const [token, setToken] = useState('')
   console.log(props.location.search);
   console.log(token);
 
   useEffect(()=>{
-    if (token.length > 1) {
+    const query = queryString(props.location.search)
+    if (query.token) {
+      setToken(query.token)
       fetch(`https://pictopal-backend.herokuapp.com/getUser/${token}`)
       .then(r => r.json())
       .then(json => {
         setUser(json)
         setIsAuthenticated(true)
+        window.localStorage.setItem("jwt", query.token);
+        this.props.history.push("/")
       })
     }
   },[token])
