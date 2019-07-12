@@ -29,11 +29,11 @@ function App(props) {
     console.log('currently logged in as: ', x.name)
   }
   const logout = () => {
+    fetch(`https://pictopal-backend.herokuapp.com/logout/${token}`)
     setIsAuthenticated(false)
     setUser(null)
     setToken('')
     window.localStorage.clear()
-
   }
 
   useEffect(()=>{
