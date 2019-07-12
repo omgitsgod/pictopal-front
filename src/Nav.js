@@ -85,10 +85,13 @@ function Nav(props) {
           <Icon path={mdiAccountCircle}
             className="bottomrighticon"
             size={2}
-            color="#92a3a8"
+            color={props.user.name? '#25839f' : '#92a3a8'}
             onClick={()=>setAccountMenu(!accountMenu)}
             data-tip data-for='account'
           />
+          <ReactTooltip id='account' type='info'>
+            <span>{props.user.name || 'Account'}</span>
+          </ReactTooltip>
           <Icon path={mdiSettingsOutline}
             className="bottomrighticon"
             size={2}
@@ -96,8 +99,8 @@ function Nav(props) {
             onClick={()=>setSettingsMenu(!settingsMenu)}
             data-tip data-for='settings'
           />
-          <ReactTooltip id='account' type='info'>
-            <span>Account</span>
+          <ReactTooltip id='settings' type='info'>
+            <span>Settings</span>
           </ReactTooltip>
       </div>
     </div>

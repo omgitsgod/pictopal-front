@@ -42,7 +42,7 @@ function App(props) {
   return (
     <div className="App">
       <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff}/>
-      <Nav isAuthenticated={isAuthenticated} color={color} setColor={setColor}  reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
+      <Nav isAuthenticated={isAuthenticated} user={user} color={color} setColor={setColor}  reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
     </div>
   );
 }
