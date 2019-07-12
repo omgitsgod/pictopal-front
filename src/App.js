@@ -14,6 +14,10 @@ function App() {
   const [color, setColor] = useState('#fff')
   const [width, setWidth] = useState(3)
   const [record, setRecord] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [user, setUser] = useState(null)
+  const [token, setToken] = useState('')
+  const []
   return (
     <div className="App">
       <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff}/>
