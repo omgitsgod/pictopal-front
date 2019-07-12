@@ -48,9 +48,9 @@
   right: 0;
   text-align: right;
 }
-button {
+.logout {
   height: 30px;
-  color: red;
+  background-color: red;
 }
 @keyframes App-logo-spin {
   from {
