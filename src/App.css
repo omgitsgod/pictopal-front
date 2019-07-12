@@ -51,6 +51,7 @@
 .logout {
   height: 30px;
   background-color: red;
+  border-color: red;
 }
 @keyframes App-logo-spin {
   from {
