@@ -85,7 +85,7 @@ function Nav(props) {
           <Icon path={mdiAccountCircle}
             className="bottomrighticon"
             size={2}
-            color={props.user.name? '#25839f' : '#92a3a8'}
+            color={props.user ? '#25839f' : '#92a3a8'}
             onClick={()=>setAccountMenu(!accountMenu)}
             data-tip data-for='account'
           />
