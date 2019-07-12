@@ -47,7 +47,7 @@ function Nav(props) {
     <div className="App">
       <div className="Nav">
         {accountMenu ?
-          <AccountMenu />
+          <AccountMenu isAuthenticated={props.isAuthenticated}/>
         :
         null
         }

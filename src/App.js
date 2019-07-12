@@ -17,11 +17,11 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [token, setToken] = useState('')
-  
+
   return (
     <div className="App">
       <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff}/>
-      <Nav color={color} setColor={setColor}  reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
+      <Nav isAuthenticated={isAuthenticated} color={color} setColor={setColor}  reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
     </div>
   );
 }
