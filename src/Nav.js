@@ -90,7 +90,7 @@ function Nav(props) {
             data-tip data-for='account'
           />
           <ReactTooltip id='account' type='info'>
-            <span>{props.user.name || 'Account'}</span>
+            <span>{props.user ? props.user.name : 'Account'}</span>
           </ReactTooltip>
           <Icon path={mdiSettingsOutline}
             className="bottomrighticon"
