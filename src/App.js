@@ -25,6 +25,8 @@ function App(props) {
     console.log(x)
     window.localStorage.setItem("jwt", token)
     props.history.push("/")
+    setUser(x)
+    setIsAuthenticated(true)
   }
 
   useEffect(()=>{
@@ -35,7 +37,7 @@ function App(props) {
         login(json)
       })
     }
-  },[token])
+  },[])
 
   return (
     <div className="App">
