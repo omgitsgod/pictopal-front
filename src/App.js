@@ -21,20 +21,24 @@ function App(props) {
   console.log(props.location.search);
   console.log(token);
 
+  const login = (x) => {
+    setUser(x)
+    setIsAuthenticated(true)
+  //  window.localStorage.setItem("jwt", query.token)
+    this.props.history.push("/")
+  }
+
   useEffect(()=>{
     const query = queryString(props.location.search)
     if (query.token) {
-      setToken(query.token)
-      fetch(`https://pictopal-backend.herokuapp.com/getUser/${token}`)
+    //  setToken(query.token)
+      fetch(`https://pictopal-backend.herokuapp.com/getUser/${query.token}`)
       .then(r => r.json())
       .then(json => {
-        setUser(json)
-        setIsAuthenticated(true)
-        window.localStorage.setItem("jwt", query.token);
-        this.props.history.push("/")
+        login(json)
       })
     }
-  },[token])
+  },[])
 
   return (
     <div className="App">
