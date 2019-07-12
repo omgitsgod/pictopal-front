@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import Sketch from './Sketch'
-import Nav from './Nav'
+import Sketch from './Sketch';
+import Nav from './Nav';
 import {SketchField, Tools} from 'react-sketch';
-import Icon from '@mdi/react'
-import {mdiContentSave, mdiRecord, mdiCctv, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
-import ReactTooltip from 'react-tooltip'
-import { isMobile } from "react-device-detect"
+import queryString from 'query-string';
+import Icon from '@mdi/react';
+import {mdiContentSave, mdiRecord, mdiCctv, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js';
+import ReactTooltip from 'react-tooltip';
+import { isMobile } from "react-device-detect";
 import './App.css';
 
 function App(props) {
@@ -16,8 +17,9 @@ function App(props) {
   const [record, setRecord] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
-  const [token, setToken] = useState('')
+  const [token, setToken] = useState(props.location.search? queryString.parse(this.props.location.search).token :'')
   console.log(props.location.search);
+  console.log(token);
   return (
     <div className="App">
       <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff}/>
