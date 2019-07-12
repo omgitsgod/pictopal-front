@@ -17,7 +17,7 @@ function App(props) {
   const [record, setRecord] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
-  const [token, setToken] = useState(props.location.search? queryString.parse(this.props.location.search).token :'')
+  const [token, setToken] = useState(props.location.search? queryString.parse(props.location.search).token :'')
   console.log(props.location.search);
   console.log(token);
   return (
