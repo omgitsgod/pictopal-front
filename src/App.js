@@ -17,12 +17,12 @@ function App(props) {
   const [record, setRecord] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
-  const [token, setToken] = useState(window.localStorage.getItem('jwt') ? window.localStorage.getItem('jwt') : props.location.search? queryString.parse(props.location.search).token :'')
+  const [token, setToken] = useState(localStorage.getItem('jwt') ? localStorage.getItem('jwt') : props.location.search? queryString.parse(props.location.search).token :'')
   console.log(props.location.search);
   console.log(token);
   const login = (x) => {
     console.log(x)
-    window.localStorage.setItem('jwt', token)
+    localStorage.setItem('jwt', token)
     props.history.push('/')
     setUser(x)
     setIsAuthenticated(true)
