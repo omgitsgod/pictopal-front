@@ -13,7 +13,7 @@ function OnlineList(props) {
   let list = online.map(x =>
     <div style={{display: 'inline'}}>
     <Icon path={mdiRecord}
-    size={1}
+    size={2}
     color="#26a367"
     />
     <p style={{color: 'white'}}>{x}</p>
