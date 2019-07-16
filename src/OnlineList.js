@@ -6,12 +6,23 @@ import { isMobile } from "react-device-detect"
 import './App.css';
 
 function OnlineList(props) {
+  const [online, setOnline] = useState([])
+  useEffect(() =>{
+    fetch(`https://pictopal-backend.herokuapp.com/onlineList`).then(r => r.json()).then(setOnline)
+  }, [])
+  let list = online.map(x =>
+    <div>
+    <Icon path={mdiRecord}
+    size={1}
+    color="#26a367"
+    />
+    <p>x</p>
+    </div>
+  )
+
   return (
     <div className="onlinelist">
-    <Icon path={mdiRecord}
-      size={1}
-      color="#26a367"
-    />
+    {list}
     </div>
   )
 }
