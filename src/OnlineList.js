@@ -16,7 +16,7 @@ function OnlineList(props) {
     size={1}
     color="#26a367"
     />
-    <p>x</p>
+    <p>{x}</p>
     </div>
   )
 

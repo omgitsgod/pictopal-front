@@ -49,6 +49,7 @@
   text-align: right;
 }
 .onlinelist {
+  display: inline;
   right: 0;
   text-align: right;
 }
