@@ -82,7 +82,7 @@ function Nav(props) {
             :
             null
           }
-          {props.user.profile ?
+          {props.user ?
             <img className='avatar' src={props.user.profile.photos[0].value} alt={'avatar'}/>
             :
             <div>
