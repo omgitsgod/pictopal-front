@@ -56,6 +56,8 @@
 .avatar {
   height: 30px;
   width: 30px;
+  float: right;
+  border-radius: 50%;
 }
 @keyframes App-logo-spin {
   from {
