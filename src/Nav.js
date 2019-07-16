@@ -82,6 +82,10 @@ function Nav(props) {
             :
             null
           }
+          {props.user.profile ?
+            <img className='avatar' src={props.user.profile.photos[0].value} alt={'avatar'}/>
+            :
+            <div>
           <Icon path={mdiAccountCircle}
             className="bottomrighticon"
             size={2}
@@ -92,6 +96,8 @@ function Nav(props) {
           <ReactTooltip id='account' type='info'>
             <span>{props.user ? props.user.name : 'Account'}</span>
           </ReactTooltip>
+          </div>
+        }
           <Icon path={mdiSettingsOutline}
             className="bottomrighticon"
             size={2}
