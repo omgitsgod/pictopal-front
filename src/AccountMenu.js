@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Icon from '@mdi/react'
 import GoogleButton from 'react-google-button'
-import {mdiContentSave, mdiAccountBox, mdiRecord, mdiCctv, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
+import {mdiContentSave, mdiLogout, mdiAccountBox, mdiRecord, mdiCctv, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
 import ReactTooltip from 'react-tooltip'
 import { isMobile } from "react-device-detect"
 import './App.css';
@@ -16,9 +16,11 @@ function AccountMenu(props) {
         color="#92a3a8"
         onClick={()=>props.setOnlineList(!props.onlineList)}
       />
-      <button className='logout' onClick={props.logout}>
-        Log Out
-      </button>
+      <Icon path={mdiLogout}
+        size={2}
+        color="#d11935"
+        onClick={props.logout}
+      />
       </div>
       :
       <a href="https://pictopal-backend.herokuapp.com/auth/google">

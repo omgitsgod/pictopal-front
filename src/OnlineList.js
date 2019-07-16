@@ -8,7 +8,7 @@ import './App.css';
 function OnlineList(props) {
   return (
     <div className="onlinelist">
-    <Icon path={mdiContentSave}
+    <Icon path={mdiRecord}
       size={1}
       color="#26a367"
     />
