@@ -83,7 +83,7 @@ function Nav(props) {
             null
           }
           {props.user ?
-            <img className='avatar' src={props.user.profile.photos[0].value} alt={'avatar'} onClick={()=>setAccountMenu(!accountMenu)}/>
+            <img className='avatar' src={props.user.photo} alt={'avatar'} onClick={()=>setAccountMenu(!accountMenu)}/>
             :
             <div>
           <Icon path={mdiAccountCircle}
