@@ -11,13 +11,9 @@ function OnlineList(props) {
     fetch(`https://pictopal-backend.herokuapp.com/onlineList`).then(r => r.json()).then(setOnline)
   }, [])
   let list = online.map(x =>
-    <div style={{display: 'inline'}}>
-    <Icon path={mdiRecord}
-    size={1}
-    color="#26a367"
-    />
+    <button style={{color: 'black'}}>
     <p style={{color: 'white'}}>{x}</p>
-    </div>
+    </button>
   )
 
   return (
