@@ -14,7 +14,8 @@ function AccountMenu(props) {
       <Icon path={mdiTestTube}
         size={2}
         color="#92a3a8"
-        onClick={()=>fetch('https://pictopal-backend.herokuapp.com/test')}
+        onClick={()=>fetch('https://pictopal-backend.herokuapp.com/test',{method: 'GET',
+  credentials: 'include'})}
       />
       <Icon path={mdiAccountBox}
         size={2}
