@@ -39,8 +39,7 @@ credentials: 'include'})
 
   useEffect(()=>{
     if (token.length > 1) {
-      fetch(`https://pictopal-backend.herokuapp.com/getUser/${token}`,{method: 'GET',
-credentials: 'include'})
+      fetch(`https://pictopal-backend.herokuapp.com/getUser/${token}`)
       .then(r => r.json())
       .then(json => {
         login(json)
