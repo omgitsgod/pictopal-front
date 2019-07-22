@@ -29,7 +29,8 @@ function App(props) {
     console.log('currently logged in as: ', x.name)
   }
   const logout = () => {
-    fetch(`https://pictopal-backend.herokuapp.com/logout/${token}`)
+    fetch(`https://pictopal-backend.herokuapp.com/logout/${token}`,{method: 'GET',
+credentials: 'include'})
     setIsAuthenticated(false)
     setUser(null)
     setToken('')
@@ -38,7 +39,8 @@ function App(props) {
 
   useEffect(()=>{
     if (token.length > 1) {
-      fetch(`https://pictopal-backend.herokuapp.com/getUser/${token}`)
+      fetch(`https://pictopal-backend.herokuapp.com/getUser/${token}`,{method: 'GET',
+credentials: 'include'})
       .then(r => r.json())
       .then(json => {
         login(json)
