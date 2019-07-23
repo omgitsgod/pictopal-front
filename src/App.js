@@ -17,35 +17,31 @@ function App(props) {
   const [record, setRecord] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
-  const [token, setToken] = useState(localStorage.getItem('jwt') ? localStorage.getItem('jwt') : props.location.search? queryString.parse(props.location.search).token :'')
   console.log(props.location.search);
-  console.log(token);
   const login = (x) => {
     console.log(x)
-    localStorage.setItem('jwt', token)
     props.history.push('/')
     setUser(x)
     setIsAuthenticated(true)
     console.log('currently logged in as: ', x.name)
   }
   const logout = () => {
-    fetch(`https://pictopal-backend.herokuapp.com/logout/${token}`,{method: 'GET',
+    fetch(`https://pictopal-backend.herokuapp.com/logout`,{method: 'GET',
 credentials: 'include'})
     setIsAuthenticated(false)
     setUser(null)
-    setToken('')
     window.localStorage.clear()
   }
 
   useEffect(()=>{
-    if (token.length > 1) {
-      fetch(`https://pictopal-backend.herokuapp.com/getUser/${token}`,{method: 'GET',
+      fetch(`https://pictopal-backend.herokuapp.com/getUser`,{method: 'GET',
 credentials: 'include'})
       .then(r => r.json())
       .then(json => {
+        if (json.email){
         login(json)
+      }
       })
-    }
   },[])
 
   return (
