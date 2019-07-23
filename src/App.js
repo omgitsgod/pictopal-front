@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import Sketch from './Sketch';
 import Nav from './Nav';
 import {SketchField, Tools} from 'react-sketch';
-import queryString from 'query-string';
 import Icon from '@mdi/react';
 import {mdiContentSave, mdiRecord, mdiCctv, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js';
 import ReactTooltip from 'react-tooltip';
