@@ -30,7 +30,6 @@ function App(props) {
 credentials: 'include'})
     setIsAuthenticated(false)
     setUser(null)
-    window.localStorage.clear()
   }
 
   useEffect(()=>{
