@@ -48,7 +48,7 @@ function Nav(props) {
   return (
     <div className="App">
       <div className="Nav">
-        {onlineList?
+        {props.isAuthenticated && onlineList?
         <OnlineList />
           :
           null
