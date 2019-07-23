@@ -11,7 +11,7 @@ function OnlineList(props) {
     fetch(`https://pictopal-backend.herokuapp.com/onlineList`).then(r => r.json()).then(setOnline)
   }, [])
   let list = online.map(x =>
-    <button style={{color: 'black'}}>
+    <button style={{backgroundColor: '#23262d'}}>
     <p style={{color: 'white'}}>{x}</p>
     </button>
   )
