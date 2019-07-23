@@ -11,12 +11,6 @@ function AccountMenu(props) {
     <div className="accountmenu">
     {props.isAuthenticated ?
       <div>
-      <Icon path={mdiNuke}
-        size={2}
-        color="#92a3a8"
-        onClick={()=>fetch('https://pictopal-backend.herokuapp.com/close',{method: 'GET',
-  credentials: 'include'})}
-      />
       <Icon path={mdiTestTube}
         size={2}
         color="#92a3a8"
