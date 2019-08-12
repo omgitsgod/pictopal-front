@@ -16,6 +16,7 @@ function App(props) {
   const [record, setRecord] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
+  let connection
   console.log(props.location.search);
   const login = (x) => {
     console.log(x)
@@ -36,7 +37,7 @@ credentials: 'include'})
     setRecord(!record)
     if (!record) {
       const url = 'wss://pictopal-backend.herokuapp.com'
-      const connection = new WebSocket(url)
+      connection = new WebSocket(url)
 
       connection.onopen = () => {
         connection.send('hey')
@@ -52,6 +53,11 @@ credentials: 'include'})
         // props.reff.fromJSON(e.data)
         // setValues(JSON.parse(e.data)
       }
+    }
+  }
+  const sendSketch = () => {
+    if (connection) {
+      connection.send(JSON.stringify(props.reff.toJSON()))
     }
   }
 
