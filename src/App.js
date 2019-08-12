@@ -74,7 +74,7 @@ credentials: 'include'})
 
   return (
     <div className="App">
-      <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff}/>
+      <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff} sendSketch={sendSketch}/>
       <Nav isAuthenticated={isAuthenticated} user={user} logout={logout} color={color} setColor={setColor} handleLive={handleLive} reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
     </div>
   );
