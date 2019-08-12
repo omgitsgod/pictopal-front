@@ -31,7 +31,7 @@ function Nav(props) {
           null
         }
         {accountMenu ?
-          <AccountMenu isAuthenticated={props.isAuthenticated} logout={props.logout} onlineList={onlineList} setOnlineList={setOnlineList}/>
+          <AccountMenu reff={props.reff} handleLive={props.handleLive} isAuthenticated={props.isAuthenticated} logout={props.logout} onlineList={onlineList} setOnlineList={setOnlineList}/>
         :
         null
         }
@@ -82,16 +82,6 @@ function Nav(props) {
           </ReactTooltip>
           </div>
         }
-          <Icon path={mdiSettingsOutline}
-            className="bottomrighticon"
-            size={2}
-            color="#92a3a8"
-            onClick={()=>setSettingsMenu(!settingsMenu)}
-            data-tip data-for='settings'
-          />
-          <ReactTooltip id='settings' type='info'>
-            <span>Settings</span>
-          </ReactTooltip>
       </div>
     </div>
   );
