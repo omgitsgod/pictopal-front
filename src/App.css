@@ -54,6 +54,12 @@
   justify-content: flex-end;
   text-align: right;
 }
+.livelist {
+  display: flex;
+  right: 0;
+  justify-content: flex-end;
+  text-align: right;
+}
 .logout {
   height: 30px;
   background-color: red;

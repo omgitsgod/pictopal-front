@@ -35,6 +35,11 @@ function AccountMenu(props) {
       />
       <Icon path={mdiAccountBox}
         size={2}
+        color="#d11935"
+        onClick={()=>props.setLiveList(!props.liveList)}
+      />
+      <Icon path={mdiAccountBox}
+        size={2}
         color="#92a3a8"
         onClick={()=>props.setOnlineList(!props.onlineList)}
       />

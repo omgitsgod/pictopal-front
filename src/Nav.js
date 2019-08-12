@@ -4,6 +4,7 @@ import SettingsMenu from './SettingsMenu'
 import ColorPicker from './ColorPicker'
 import SketchTools from './SketchTools'
 import OnlineList from './OnlineList'
+import LiveList from './LiveList'
 import Icon from '@mdi/react'
 import {mdiRecord, mdiSettingsOutline, mdiAccountCircle} from '@mdi/js'
 import ReactTooltip from 'react-tooltip'
@@ -19,6 +20,7 @@ function Nav(props) {
   const [settingsMenu, setSettingsMenu] = useState(false)
   const [record, setRecord] = useState(false)
   const [onlineList, setOnlineList] = useState(false)
+  const [liveList, setLiveList] = useState(false)
 
 
   console.log(props.reff);
@@ -26,12 +28,17 @@ function Nav(props) {
     <div className="App">
       <div className="Nav">
         {props.isAuthenticated && onlineList?
+        <LiveList />
+          :
+          null
+        }
+        {props.isAuthenticated && onlineList?
         <OnlineList />
           :
           null
         }
         {accountMenu ?
-          <AccountMenu reff={props.reff} handleLive={props.handleLive} isAuthenticated={props.isAuthenticated} logout={props.logout} onlineList={onlineList} setOnlineList={setOnlineList}/>
+          <AccountMenu reff={props.reff} handleLive={props.handleLive} isAuthenticated={props.isAuthenticated} logout={props.logout} onlineList={onlineList} setOnlineList={setOnlineList} liveList={liveList} setLiveList={setLiveList}/>
         :
         null
         }
