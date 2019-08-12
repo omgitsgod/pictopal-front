@@ -73,7 +73,7 @@ function Nav(props) {
           :
           null}
         <SketchTools reff={props.reff} setColorPicker={setColorPicker} colorPicker={colorPicker} setTool={props.setTool} setWidthMenu={setWidthMenu} widthMenu={widthMenu} expand={expand} setExpand={setExpand} color={props.color}/>
-          {props.record ?
+          {record ?
             <div>
             <Icon path={mdiRecord}
               className="bottomrighticon"
