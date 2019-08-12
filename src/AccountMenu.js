@@ -24,6 +24,9 @@ function AccountMenu(props) {
         onClick={()=>setSettingsMenu(!settingsMenu)}
         data-tip data-for='settings'
       />
+      <ReactTooltip id='settings' type='info'>
+        <span>Settings</span>
+      </ReactTooltip>
       <Icon path={mdiTestTube}
         size={2}
         color="#92a3a8"
@@ -49,6 +52,9 @@ function AccountMenu(props) {
           onClick={()=>setSettingsMenu(!settingsMenu)}
           data-tip data-for='settings'
         />
+        <ReactTooltip id='settings' type='info'>
+          <span>Settings</span>
+        </ReactTooltip>
         <a href="https://pictopal-backend.herokuapp.com/auth/google">
         <GoogleButton
           onClick={() => { console.log('Google button clicked') }}
