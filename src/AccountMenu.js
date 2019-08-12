@@ -42,11 +42,19 @@ function AccountMenu(props) {
       />
       </div>
       :
-      <a href="https://pictopal-backend.herokuapp.com/auth/google">
-      <GoogleButton
-        onClick={() => { console.log('Google button clicked') }}
-      />
-      </a>
+      <div>
+        <Icon path={mdiSettingsOutline}
+          size={2}
+          color="#92a3a8"
+          onClick={()=>setSettingsMenu(!settingsMenu)}
+          data-tip data-for='settings'
+        />
+        <a href="https://pictopal-backend.herokuapp.com/auth/google">
+        <GoogleButton
+          onClick={() => { console.log('Google button clicked') }}
+        />
+        </a>
+      </div>
     }
     </div>
   )
