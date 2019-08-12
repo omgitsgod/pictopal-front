@@ -31,6 +31,30 @@ credentials: 'include'})
     setUser(null)
   }
 
+  const handleLive = () => {
+    console.log("Live");
+    setRecord(!record)
+    if (!record) {
+      const url = 'wss://pictopal-backend.herokuapp.com'
+      const connection = new WebSocket(url)
+
+      connection.onopen = () => {
+        connection.send('hey')
+        connection.send(JSON.stringify(props.reff.toJSON()))
+      }
+
+      connection.onerror = (error) => {
+        console.log(`WebSocket error: ${error}`)
+      }
+
+      connection.onmessage = (e) => {
+        console.log(e.data)
+        // props.reff.fromJSON(e.data)
+        // setValues(JSON.parse(e.data)
+      }
+    }
+  }
+
   useEffect(()=>{
       fetch(`https://pictopal-backend.herokuapp.com/getUser`,{method: 'GET',
 credentials: 'include'})
@@ -45,7 +69,7 @@ credentials: 'include'})
   return (
     <div className="App">
       <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff}/>
-      <Nav isAuthenticated={isAuthenticated} user={user} logout={logout} color={color} setColor={setColor}  reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
+      <Nav isAuthenticated={isAuthenticated} user={user} logout={logout} color={color} setColor={setColor} handleLive={handleLive} reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
     </div>
   );
 }

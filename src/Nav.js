@@ -21,29 +21,6 @@ function Nav(props) {
   const [onlineList, setOnlineList] = useState(false)
 
 
-  const handleLive = () => {
-    console.log("Live");
-    setRecord(!record)
-    if (!record) {
-      const url = 'wss://pictopal-backend.herokuapp.com'
-      const connection = new WebSocket(url)
-
-      connection.onopen = () => {
-        connection.send('hey')
-        connection.send(JSON.stringify(props.reff.toJSON()))
-      }
-
-      connection.onerror = (error) => {
-        console.log(`WebSocket error: ${error}`)
-      }
-
-      connection.onmessage = (e) => {
-        console.log(e.data)
-        // props.reff.fromJSON(e.data)
-        // setValues(JSON.parse(e.data)
-      }
-    }
-  }
   console.log(props.reff);
   return (
     <div className="App">
@@ -59,7 +36,7 @@ function Nav(props) {
         null
         }
         {settingsMenu ?
-          <SettingsMenu reff={props.reff} handleLive={handleLive}/>
+          <SettingsMenu reff={props.reff} handleLive={props.handleLive}/>
           :
           null
         }
@@ -73,7 +50,7 @@ function Nav(props) {
           :
           null}
         <SketchTools reff={props.reff} setColorPicker={setColorPicker} colorPicker={colorPicker} setTool={props.setTool} setWidthMenu={setWidthMenu} widthMenu={widthMenu} expand={expand} setExpand={setExpand} color={props.color}/>
-          {record ?
+          {props.record ?
             <div>
             <Icon path={mdiRecord}
               className="bottomrighticon"
