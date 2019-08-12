@@ -47,6 +47,7 @@ function AccountMenu(props) {
       :
       <div>
         <Icon path={mdiSettingsOutline}
+          className="bottomrighticon"
           size={2}
           color="#92a3a8"
           onClick={()=>setSettingsMenu(!settingsMenu)}
