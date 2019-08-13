@@ -56,6 +56,7 @@ credentials: 'include'})
     }
   }
   const sendSketch = () => {
+    console.log(reff);
     if (connection) {
       connection.send(JSON.stringify(props.reff.toJSON()))
     }

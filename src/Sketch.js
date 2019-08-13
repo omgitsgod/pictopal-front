@@ -33,7 +33,7 @@ function Sketch(props) {
                              lineWidth={props.width}
                              defaultValue = {defaults}
                              ref={props.setReff}
-                             onChange={()=>console.log(props.reff) && props.sendSketch()}/>
+                             onChange={()=> props.sendSketch()}/>
         </div>
 
 
