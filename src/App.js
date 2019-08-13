@@ -41,7 +41,7 @@ credentials: 'include'})
 
       connection.onopen = () => {
         connection.send('hey')
-        connection.send(JSON.stringify(props.reff.toJSON()))
+        connection.send(JSON.stringify(reff.toJSON()))
       }
 
       connection.onerror = (error) => {
@@ -58,7 +58,7 @@ credentials: 'include'})
   const sendSketch = () => {
     console.log(reff);
     if (connection) {
-      connection.send(JSON.stringify(props.reff.toJSON()))
+      connection.send(JSON.stringify(reff.toJSON()))
     }
   }
 
