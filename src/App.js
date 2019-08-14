@@ -43,6 +43,9 @@ credentials: 'include'})
         connection.send('hey')
         connection.send(JSON.stringify(reff.toJSON()))
       }
+      connection.onclose = () => {
+        setWsConnection(null)
+      }
 
       connection.onerror = (error) => {
         console.log(`WebSocket error: ${error}`)
@@ -52,7 +55,6 @@ credentials: 'include'})
         console.log(e.data)
         // props.reff.fromJSON(e.data)
         // setValues(JSON.parse(e.data)
-        setWsConnection(null)
       }
       setWsConnection(connection)
     }
