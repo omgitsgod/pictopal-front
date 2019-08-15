@@ -43,9 +43,6 @@ credentials: 'include'})
         connection.send('hey')
         connection.send(JSON.stringify(reff.toJSON()))
       }
-      connection.onclose = () => {
-        setWsConnection(null)
-      }
 
       connection.onerror = (error) => {
         console.log(`WebSocket error: ${error}`)
@@ -57,6 +54,8 @@ credentials: 'include'})
         // setValues(JSON.parse(e.data)
       }
       setWsConnection(connection)
+    } else {
+        setWsConnection(null)
     }
   }
   const sendSketch = () => {
