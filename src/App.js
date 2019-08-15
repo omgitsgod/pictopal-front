@@ -32,6 +32,9 @@ function App(props) {
 credentials: 'include'})
     setIsAuthenticated(false)
     setUser(null)
+    if (wsConnection) {
+      setWsConnection(null)
+    }
   }
 
   const handleLive = () => {
@@ -58,7 +61,7 @@ credentials: 'include'})
       connection.onmessage = (e) => {
         console.log(e.data)
         // props.reff.fromJSON(e.data)
-         setValues(JSON.parse(e.data.objects))
+         setValues(JSON.parse(e.data).objects)
       }
       setWsConnection(connection)
     } else {
