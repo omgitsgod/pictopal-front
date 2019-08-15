@@ -46,6 +46,7 @@ credentials: 'include'})
 
       connection.onclose = () => {
         console.log("Closing socket!");
+        setWsConnection(null)
       }
 
       connection.onerror = (error) => {
@@ -60,7 +61,6 @@ credentials: 'include'})
       setWsConnection(connection)
     } else {
         wsConnection.close()
-        setWsConnection(null)
     }
   }
   const sendSketch = () => {
