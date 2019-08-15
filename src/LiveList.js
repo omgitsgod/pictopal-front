@@ -6,11 +6,11 @@ import { isMobile } from "react-device-detect"
 import './App.css';
 
 function LiveList(props) {
-  const [liveList, setLiveList] = useState([])
+  const [live, setLive] = useState([])
   useEffect(() =>{
-    fetch(`https://pictopal-backend.herokuapp.com/liveList`).then(r => r.json()).then(setLiveList)
+    fetch(`https://pictopal-backend.herokuapp.com/liveList`).then(r => r.json()).then(setLive)
   }, [])
-  let list = liveList.map(x =>
+  let list = live.map(x =>
     <button style={{backgroundColor: '#23262d'}}>
     <p style={{color: 'white'}}>{x}</p>
     </button>
