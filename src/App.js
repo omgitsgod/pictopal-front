@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Sketch from './Sketch';
 import Nav from './Nav';
+import {HELLOWELCOME} from '../constants'
 import {SketchField, Tools} from 'react-sketch';
 import Icon from '@mdi/react';
 import {mdiContentSave, mdiRecord, mdiCctv, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js';
@@ -17,6 +18,7 @@ function App(props) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [wsConnection, setWsConnection] = useState(null)
+  const [values, setValues] = useState(JSON.parse(localStorage.getItem("canvas")) ? JSON.parse(localStorage.getItem("canvas")).objects : HELLOWELCOME)
   console.log(props.location.search);
   const login = (x) => {
     console.log(x)
@@ -55,8 +57,8 @@ credentials: 'include'})
 
       connection.onmessage = (e) => {
         console.log(e.data)
-         props.reff.fromJSON(e.data)
-        // setValues(JSON.parse(e.data)
+        // props.reff.fromJSON(e.data)
+         setValues(JSON.parse(e.data.objects))
       }
       setWsConnection(connection)
     } else {
@@ -84,7 +86,7 @@ credentials: 'include'})
 
   return (
     <div className="App">
-      <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff} sendSketch={sendSketch}/>
+      <Sketch setReff={setReff} tool={tool} color={color} width={width} reff={reff} sendSketch={sendSketch} values={values}/>
       <Nav isAuthenticated={isAuthenticated} user={user} logout={logout} color={color} setColor={setColor} handleLive={handleLive} reff={reff} record={record} setTool={setTool} setWidth={setWidth}/>
     </div>
   );
