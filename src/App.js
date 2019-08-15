@@ -34,6 +34,7 @@ credentials: 'include'})
     setUser(null)
     if (wsConnection) {
       setWsConnection(null)
+      setRecord(null)
     }
   }
 
