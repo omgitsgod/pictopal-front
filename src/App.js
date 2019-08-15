@@ -44,6 +44,10 @@ credentials: 'include'})
         connection.send(JSON.stringify(reff.toJSON()))
       }
 
+      connection.onclose = () => {
+        console.log("Closing socket!");
+      }
+
       connection.onerror = (error) => {
         console.log(`WebSocket error: ${error}`)
       }
