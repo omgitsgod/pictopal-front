@@ -55,6 +55,7 @@ credentials: 'include'})
       }
       setWsConnection(connection)
     } else {
+        wsConnection.close()
         setWsConnection(null)
     }
   }
