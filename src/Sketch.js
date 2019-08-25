@@ -21,6 +21,10 @@ function Sketch(props) {
     background: ''
   }
 
+  useEffect(() => {
+    console.log("Updating values!");
+  }, [props.values])
+
   console.log(props.reff);
   return (
       <header className="App-header">
