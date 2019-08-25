@@ -74,6 +74,7 @@ credentials: 'include'})
     console.log(reff);
     console.log(wsConnection);
     if (wsConnection) {
+      console.log("Sending sketch!");
       wsConnection.send(JSON.stringify(reff.toJSON()))
     }
   }
