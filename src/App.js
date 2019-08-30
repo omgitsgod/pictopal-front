@@ -93,8 +93,8 @@ credentials: 'include'})
   }
 
   useEffect(()=>{
-      fetch(`https://pictopal-backend.herokuapp.com/getUser`,{method: 'GET',
-credentials: 'include'})
+      console.log("values: ",  values);
+      fetch(`https://pictopal-backend.herokuapp.com/getUser`,{method: 'GET', credentials: 'include'})
       .then(r => r.json())
       .then(json => {
         if (json.email){
