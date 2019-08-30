@@ -80,7 +80,8 @@ credentials: 'include'})
       console.log("moveList updated to: ", reff.toJSON().objects);
       if (wsConnection) {
         console.log("Sending sketch!");
-        wsConnection.send(JSON.stringify(reff.toJSON()))
+        let stringy = JSON.stringify(reff.toJSON())
+        wsConnection.send(stringy)
       };
     }
   }
