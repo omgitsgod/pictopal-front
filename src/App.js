@@ -75,6 +75,7 @@ credentials: 'include'})
   const sendSketch = () => {
     console.log("ref object: ", reff);
     updateMoves()
+    console.log("moveCount updated to: ", moveCount);
     if (wsConnection) {
       console.log("Sending sketch!");
       wsConnection.send(JSON.stringify(reff.toJSON()))
@@ -84,7 +85,6 @@ credentials: 'include'})
   const updateMoves = () => {
     setMoveList(reff.toJSON().objects)
     setMoveCount(reff.toJSON().objects.length)
-    console.log("moveCount updated to: ", moveCount);
   }
 
   useEffect(()=>{
