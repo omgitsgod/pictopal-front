@@ -63,7 +63,7 @@ credentials: 'include'})
 
       connection.onmessage = (e) => {
         console.log(e.data)
-        let objects = JSON.parse(e.data).objects
+        let objects = JSON.parse(e.data)
         // props.reff.fromJSON(e.data)
          setValues(objects)
       }
@@ -79,7 +79,7 @@ credentials: 'include'})
       console.log("moveCount updated to: ", reff.toJSON().objects.length);
       if (wsConnection) {
         console.log("Sending sketch!");
-        wsConnection.send(JSON.stringify(reff.toJSON()));
+        wsConnection.send(JSON.stringify(reff.toJSON().objects));
       };
     }
   }
