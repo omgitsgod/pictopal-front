@@ -63,9 +63,9 @@ credentials: 'include'})
 
       connection.onmessage = (e) => {
         console.log(e.data)
-        let objects = JSON.parse(e.data).objects
+        let objects = JSON.parse(e.data)
         // props.reff.fromJSON(e.data)
-         setValues(objects)
+      //   setValues(objects)
       }
       setWsConnection(connection)
     } else {
