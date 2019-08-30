@@ -73,9 +73,8 @@ credentials: 'include'})
     }
   }
   const sendSketch = () => {
-    console.log(reff);
-    const moves = reff.toJSON().objects.length
-    console.log("Moves: ", moves);
+    console.log("ref object: ", reff);
+    updateMoves()
     if (wsConnection) {
       console.log("Sending sketch!");
       wsConnection.send(JSON.stringify(reff.toJSON()))
@@ -83,13 +82,12 @@ credentials: 'include'})
   }
 
   const updateMoves = () => {
-  //  setMoveList(reff.toJSON().objects)
-  //  setMoveCount(reff.toJSON().objects.length)
+    setMoveList(reff.toJSON().objects)
+    setMoveCount(reff.toJSON().objects.length)
     console.log("moveCount updated to: ", moveCount);
   }
 
   useEffect(()=>{
-      updateMoves()
       fetch(`https://pictopal-backend.herokuapp.com/getUser`,{method: 'GET',
 credentials: 'include'})
       .then(r => r.json())
