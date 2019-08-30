@@ -78,6 +78,7 @@ credentials: 'include'})
       console.log("ref object: ", reff);
       updateMoves();
       console.log("moveCount updated to: ", reff.toJSON().objects.length);
+      console.log("moveList updated to: ", reff.toJSON().objects);
       if (wsConnection) {
         console.log("Sending sketch!");
         wsConnection.send(reff.toJSON());
