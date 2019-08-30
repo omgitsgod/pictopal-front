@@ -81,6 +81,7 @@ credentials: 'include'})
       if (wsConnection) {
         console.log("Sending sketch!");
         let stringy = JSON.stringify(reff.toJSON())
+        console.log('stringy: ', stringy);
         wsConnection.send(stringy)
       };
     }
