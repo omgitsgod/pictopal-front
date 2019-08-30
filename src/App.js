@@ -88,6 +88,11 @@ credentials: 'include'})
         login(json)
       }
       })
+      return () => {
+        if (wsConnection) {
+          wsConnection.close()
+        }
+      }
   },[])
 
   return (
