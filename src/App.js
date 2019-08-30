@@ -83,8 +83,8 @@ credentials: 'include'})
   }
 
   const updateMoves = () => {
-    setMoveList(reff.toJSON().objects)
-    setMoveCount(reff.toJSON().objects.length)
+  //  setMoveList(reff.toJSON().objects)
+  //  setMoveCount(reff.toJSON().objects.length)
     console.log("moveCount updated to: ", moveCount);
   }
 
