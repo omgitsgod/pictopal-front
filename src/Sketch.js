@@ -16,13 +16,12 @@ function Sketch(props) {
   const [ref, setRef] = useState({undo: null})
   const [record, setRecord] = useState(false)
 
-  const defaults = {
-    objects: props.values,
-    background: ''
-  }
-
   useEffect(() => {
     console.log("Updating values!");
+    const defaults = {
+      objects: props.values,
+      background: ''
+    }
   }, [props.values])
 
   console.log(props.reff);
