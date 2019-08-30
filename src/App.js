@@ -64,7 +64,7 @@ credentials: 'include'})
       connection.onmessage = (e) => {
         console.log(e.data)
         let objects = JSON.parse(e.data)
-        console.log(objects);
+        console.log(objects.objects);
         // props.reff.fromJSON(e.data)
       //   setValues(objects)
       }
