@@ -75,18 +75,18 @@ credentials: 'include'})
   const sendSketch = () => {
     console.log("ref object: ", reff);
     if (moveCount !== reff.toJSON().objects.length) {
-      updateMoves()
-      console.log("moveCount updated to: ", reff.toJSON().objects.length);  
-    }
-    if (wsConnection) {
-      console.log("Sending sketch!");
-      wsConnection.send(JSON.stringify(reff.toJSON()))
+      updateMoves();
+      console.log("moveCount updated to: ", reff.toJSON().objects.length);
+      if (wsConnection) {
+        console.log("Sending sketch!");
+        wsConnection.send(JSON.stringify(reff.toJSON()));
+      };
     }
   }
 
   const updateMoves = () => {
-    setMoveList(reff.toJSON().objects)
-    setMoveCount(reff.toJSON().objects.length)
+    setMoveList(reff.toJSON().objects);
+    setMoveCount(reff.toJSON().objects.length);
   }
 
   useEffect(()=>{
