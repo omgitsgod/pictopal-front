@@ -18,7 +18,7 @@ function App(props) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [wsConnection, setWsConnection] = useState(null)
-  const [values, setValues] = useState(JSON.parse(localStorage.getItem("canvas")) ? JSON.parse(localStorage.getItem("canvas")) : HELLOWELCOME)
+  const [values, setValues] = useState(JSON.parse(localStorage.getItem("canvas")) ? JSON.parse(localStorage.getItem("canvas")).objects : HELLOWELCOME)
   const [moveList, setMoveList] = useState([])
   const [moveCount, setMoveCount] = useState(0)
   console.log(props.location.search);
@@ -63,7 +63,7 @@ credentials: 'include'})
 
       connection.onmessage = (e) => {
         console.log(e.data)
-        let objects = JSON.parse(e.data)
+        let objects = JSON.parse(e.data).objects
         // props.reff.fromJSON(e.data)
          setValues(objects)
       }
@@ -79,7 +79,7 @@ credentials: 'include'})
       console.log("moveCount updated to: ", reff.toJSON().objects.length);
       if (wsConnection) {
         console.log("Sending sketch!");
-        wsConnection.send(JSON.stringify(reff.toJSON().objects));
+        wsConnection.send(JSON.stringify(reff.toJSON()));
       };
     }
   }
