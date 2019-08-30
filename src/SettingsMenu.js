@@ -38,7 +38,7 @@ function SettingsMenu(props) {
       <Icon path={mdiContentSave}
         size={2}
         color="#92a3a8"
-        onClick={()=>localStorage.setItem("canvas", JSON.stringify(props.reff.toJSON()))}
+        onClick={()=>localStorage.setItem("canvas", JSON.stringify(props.reff.toJSON().objects))}
         data-tip data-for='save'
       />
       <ReactTooltip id='save' type='info'>
