@@ -74,7 +74,7 @@ credentials: 'include'})
   }
   const sendSketch = () => {
     console.log("ref object: ", reff);
-    if (moveCount !== reff.toJSON().objects.length) {
+    if (moveList !== reff.toJSON().objects) {
       updateMoves();
       console.log("moveCount updated to: ", reff.toJSON().objects.length);
       if (wsConnection) {
