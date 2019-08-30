@@ -19,6 +19,8 @@ function App(props) {
   const [user, setUser] = useState(null)
   const [wsConnection, setWsConnection] = useState(null)
   const [values, setValues] = useState(JSON.parse(localStorage.getItem("canvas")) ? JSON.parse(localStorage.getItem("canvas")).objects : HELLOWELCOME)
+  const [moveList setMoveList] = useState([])
+  const [moveCount, setMoveCount] = useState(0)
   console.log(props.location.search);
   const login = (x) => {
     console.log(x)
@@ -80,7 +82,14 @@ credentials: 'include'})
     }
   }
 
+  const updateMoves = () => {
+    setMoveList(reff.toJSON().objects)
+    setMoveCount(reff.toJSON().objects.length)
+    console.log("moveCount updated to: ", moveCount);
+  }
+
   useEffect(()=>{
+      updateMoves()
       fetch(`https://pictopal-backend.herokuapp.com/getUser`,{method: 'GET',
 credentials: 'include'})
       .then(r => r.json())
