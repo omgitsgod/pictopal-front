@@ -63,8 +63,8 @@ credentials: 'include'})
 
       connection.onmessage = (e) => {
         const canvas = e.data
-        console.log(canvas)
-        reff.fromJSON(JSON.parse(canvas))
+        console.log("canvas: ", canvas)
+        reff.fromJSON(canvas)
       }
       setWsConnection(connection)
     } else {
