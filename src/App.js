@@ -62,10 +62,9 @@ credentials: 'include'})
       }
 
       connection.onmessage = (e) => {
-        console.log(e.data)
-        let objects = JSON.parse(e.data).objects
-        // props.reff.fromJSON(e.data)
-        setValues(objects)
+        const canvas = e.data
+        console.log(canvas)
+        reff.fromJSON(JSON.parse(canvas))
       }
       setWsConnection(connection)
     } else {
