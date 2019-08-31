@@ -23,6 +23,7 @@ function Sketch(props) {
 
   useEffect(() => {
     console.log("Updating values!");
+    console.log(props.values);
   }, [props.values])
 
   console.log(props.reff);
