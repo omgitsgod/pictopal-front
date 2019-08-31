@@ -62,9 +62,10 @@ credentials: 'include'})
       }
 
       connection.onmessage = (e) => {
-        const canvas = e.data
-        console.log("canvas: ", canvas)
-        reff.fromJSON(canvas)
+        const message = JSON.parse(e.data)
+        console.log('message', message);
+      //  console.log("canvas: ", canvas)
+      //  reff.fromJSON(canvas)
       }
       setWsConnection(connection)
     } else {
@@ -79,7 +80,11 @@ credentials: 'include'})
       console.log("moveList updated to: ", reff.toJSON().objects);
       if (wsConnection) {
         console.log("Sending sketch!");
-        let stringy = JSON.stringify(reff.toJSON())
+        let sendy = {
+          canvas : reff.toJSON(),
+          client: ''
+        }
+        let stringy = JSON.stringify(sendy)
         console.log('stringy: ', stringy);
         wsConnection.send(stringy)
       };
