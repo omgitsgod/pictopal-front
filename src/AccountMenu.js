@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Icon from '@mdi/react'
 import GoogleButton from 'react-google-button'
 import SettingsMenu from './SettingsMenu'
+import {MAYBEMAYBE} from './constants'
 import {mdiContentSave, mdiNuke, mdiTestTube, mdiLogout, mdiAccountBox, mdiRecord, mdiCctv, mdiTrashCanOutline, mdiShareOutline, mdiSettingsOutline, mdiUndo, mdiRedo, mdiArrowSplitHorizontal, mdiNewBox, mdiAccountCircle, mdiPencil, mdiChevronDoubleRight, mdiRayStartArrow, mdiDragVertical, mdiRectangleOutline, mdiCircleOutline, mdiPan, mdiPalette} from '@mdi/js'
 import ReactTooltip from 'react-tooltip'
 import { isMobile } from "react-device-detect"
@@ -30,8 +31,7 @@ function AccountMenu(props) {
       <Icon path={mdiTestTube}
         size={2}
         color="#92a3a8"
-        onClick={()=>fetch('https://pictopal-backend.herokuapp.com/test',{method: 'GET',
-  credentials: 'include'})}
+        onClick={()=> props.reff.fromJSON(MAYBEMAYBE)}
       />
       <Icon path={mdiAccountBox}
         size={2}
