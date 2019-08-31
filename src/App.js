@@ -48,8 +48,11 @@ credentials: 'include'})
       let connection = new WebSocket(url)
       console.log("connection: ", connection);
       connection.onopen = () => {
-        connection.send('hey')
-        connection.send(JSON.stringify(reff.toJSON()))
+      //  connection.send('hey')
+      //  connection.send(JSON.stringify(reff.toJSON()))
+
+      
+      // ADD MESSAGE TYPE TO SEE IF HOST OR NOT
       }
 
       connection.onclose = () => {
