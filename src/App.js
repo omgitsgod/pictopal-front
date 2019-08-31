@@ -51,7 +51,7 @@ credentials: 'include'})
       //  connection.send('hey')
       //  connection.send(JSON.stringify(reff.toJSON()))
 
-      
+
       // ADD MESSAGE TYPE TO SEE IF HOST OR NOT
       }
 
@@ -67,8 +67,9 @@ credentials: 'include'})
       connection.onmessage = (e) => {
         const message = JSON.parse(e.data)
         console.log('message', message);
-      //  console.log("canvas: ", canvas)
-      //  reff.fromJSON(canvas)
+        if (message.client === "client") {
+          reff.fromJSON(message.canvas)
+        }
       }
       setWsConnection(connection)
     } else {
