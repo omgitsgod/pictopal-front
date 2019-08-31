@@ -46,7 +46,7 @@ credentials: 'include'})
     if (!record) {
       const url = 'wss://pictopal-backend.herokuapp.com'
       let connection = new WebSocket(url)
-
+      console.log("connection: ", connection);
       connection.onopen = () => {
         connection.send('hey')
         connection.send(JSON.stringify(reff.toJSON()))
